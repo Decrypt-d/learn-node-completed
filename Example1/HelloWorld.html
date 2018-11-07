@@ -15,10 +15,16 @@
         <script>
             //Implement your fetch method to fetch the data
             const Greetings = document.getElementById("Greetings");
+            function showGreetings(name)
+            {
+                Greetings.childNodes[0].nodeValue = "I am " + name;
+                Greetings.style.display = "block";  
+            }
+            
+            //Show off fetch    
             fetch("http://127.0.0.1:3000/getName",{method: "GET"}).then(res => res.text().then(
                     (result) => {
-                        Greetings.childNodes[0].nodeValue = "I am " + result;
-                        Greetings.style.display = "block";   
+                        showGreetings(result);
                     }
                 ));
         </script>
